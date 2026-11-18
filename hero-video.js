@@ -11,7 +11,16 @@
       return;
     }
     if (!video.getAttribute('src')) video.src = 'assets/escalade-fast.mp4';
-    video.play().then(() => video.classList.add('is-ready')).catch(() => video.classList.remove('is-ready'));
+    video.play().then(() => {
+      const reveal = () => {
+        if (!preference.matches && !video.paused && video.readyState >= 2) {
+          video.classList.add('is-ready');
+        }
+      };
+      // Keep the still visible until a real video frame can be displayed.
+      if ('requestVideoFrameCallback' in video) video.requestVideoFrameCallback(reveal);
+      else requestAnimationFrame(reveal);
+    }).catch(() => video.classList.remove('is-ready'));
   };
   video.addEventListener('error', () => video.classList.remove('is-ready'));
   if (preference.addEventListener) preference.addEventListener('change', start);
