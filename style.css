@@ -279,3 +279,25 @@
 /* Vector icons keep their color and shape on iOS and other devices. */
 .ui-arrow{display:inline-block;width:1em;height:1em;vertical-align:-.1em;flex:none}
 .service-gear{display:block;width:1em;height:1em}
+
+/* Compact external link in the footer. */
+.footer-note{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap}
+.footer-relevant{color:#aaa4a3;white-space:nowrap;transition:color .2s}
+.footer-relevant:hover{color:#ee5962}
+.footer-relevant:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@media(max-width:600px){.footer-relevant{margin-left:auto}}
+
+/* Keep the footer contacts and actions in clear rows on small screens. */
+.footer-callback{display:inline-flex;align-items:center;gap:8px}
+.footer-callback .ui-arrow{width:14px;height:14px}
+@media(max-width:600px){
+  footer{padding:36px 0}
+  .footer-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:20px 16px}
+  .footer-brand{grid-column:1/-1;width:110px}
+  .footer-summary{grid-column:1/-1;min-width:0}
+  .footer-inner>.contact-links{grid-column:1/-1;display:grid;grid-template-columns:32px 32px minmax(0,1fr);align-items:start;gap:12px}
+  .footer-phone-block{grid-column:1/-1;gap:9px}
+  .footer-inner .back-top{justify-self:end;align-self:center;margin:0}
+  .footer-callback{align-self:center}
+  .footer-note{justify-content:flex-end;padding-top:24px}
+}
