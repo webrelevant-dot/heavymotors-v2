@@ -10,7 +10,7 @@
       video.load();
       return;
     }
-    if (!video.getAttribute('src')) video.src = 'assets/escalade-optimized.m4v';
+    if (!video.getAttribute('src')) video.src = 'assets/escalade-fast.mp4';
     video.play().then(() => video.classList.add('is-ready')).catch(() => video.classList.remove('is-ready'));
   };
   video.addEventListener('error', () => video.classList.remove('is-ready'));
